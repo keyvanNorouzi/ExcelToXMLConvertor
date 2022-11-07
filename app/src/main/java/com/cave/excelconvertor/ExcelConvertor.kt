@@ -6,7 +6,7 @@ import java.io.File
 import java.io.FileInputStream
 
 val ANDROID_STUDIO_MAIN_VALUES_PATH =
-    ""
+    "/home/keyvan/AndroidStudioProjects/dericoin/app/src/main/res/values"
 
 fun main() {
     val assetsPath = System.getProperty("user.dir")?.plus("/app/src/main/assets") ?: ""
@@ -37,9 +37,9 @@ private fun readEXCELFile(path: String, fileName: String) {
     var errorMessages: String? = null
     val keys = checkForRules(fileName = fileName)
     sheet.forEach {
-        val key = sheet.getRow(it.rowNum).getCell(0).richStringCellValue
+        val key = sheet.getRow(it.rowNum).getCell(it.firstCellNum.toInt()).richStringCellValue
         if (keys.containsValue(key.toString())) {
-            val value = sheet.getRow(it.rowNum).getCell(2).richStringCellValue
+            val value = sheet.getRow(it.rowNum).getCell(it.lastCellNum.toInt()-1).richStringCellValue
             val xmlString = "<string name=\"$key\">$value</string>"
             text += xmlString + "\n"
         } else {

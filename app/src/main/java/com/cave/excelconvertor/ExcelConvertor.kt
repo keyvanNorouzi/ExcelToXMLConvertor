@@ -6,7 +6,7 @@ import java.io.File
 import java.io.FileInputStream
 
 val ANDROID_STUDIO_MAIN_VALUES_PATH =
-    "/home/keyvan/AndroidStudioProjects/dericoin/app/src/main/res/values"
+    ""
 
 fun main() {
     val assetsPath = System.getProperty("user.dir")?.plus("/app/src/main/assets") ?: ""
